@@ -20,8 +20,8 @@
  * @param {{name: string, price: number}} furniture - A piece of furniture from the catalogue
  * @return {number} The price of the piece of furniture
  */
-export const getFurniturePrice = (furniture) => {
-  return;
+export const getFurniturePrice = (furniture: Furniture): number => {
+  return -1;
 };
 
 /**
@@ -31,8 +31,10 @@ export const getFurniturePrice = (furniture) => {
  * @param {string} location - A store location to attach to a piece of furniture
  * @returns {{name: string, price: number, location: string}} furniture - A furniture object from the catalogue
  */
-export const setFurnitureStoreLocation = (furniture, location) => {
-  return;
+export const setFurnitureStoreLocation = (furniture: Furniture, location: string): CompleteFurniture => {
+  const defaultFurniture = { name: "", price: -1, location: "" };
+
+  return defaultFurniture;
 };
 
 /**
@@ -45,13 +47,16 @@ export const setFurnitureStoreLocation = (furniture, location) => {
  * @param {boolean} canTravelSolarSystems The ability for the space ship to travel to different solar systems
  * @returns {{name: string, noOfSeats: number, engineType: string, canTravelSolarSystems: boolean}} spaceship - The space ship object
  */
+
 export const makeSpaceship = (
-  name,
-  noOfSeats,
-  engineType,
-  canTravelSolarSystems
-) => {
-  return;
+  name: string,
+  noOfSeats: number,
+  engineType: string,
+  canTravelSolarSystems: boolean
+): SpaceShip => {
+  const defaultSpaceShip = { name: "", noOfSeats: -1, engineType: "", canTravelSolarSystems: false };
+
+  return defaultSpaceShip;
 };
 
 /* Intermediate Challenges */
@@ -63,19 +68,23 @@ export const makeSpaceship = (
  * @param {string} username - A username to attach
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
-export const setUserName = (user, username) => {
-  return;
+export const setUserName = (user: User, username: string): CompleteUser => {
+  const defaultUser = { name: "", username: "" };
+
+  return defaultUser;
 };
 
 /**
  * A function which takes a customer object from the database and returns the same object where the name has been
  * split into first and last name and reattached to the object
  *
- * @param {{fullName: string,}} customer A customer object from the database
+ * @param {{fullName: string}} customer A customer object from the database
  * @returns {{fullName: string, firstName: string, lastName: string}} A customer object from the database with the name separated into first and last
  */
-export const splitFullNameToFirstAndLast = (customer) => {
-  return;
+export const splitFullNameToFirstAndLast = (customer: Customer): CompleteCustomer => {
+  const defaultCustomer = { fullName: "", firstName: "", lastName: "" };
+
+  return defaultCustomer;
 };
 
 /**
@@ -87,7 +96,7 @@ export const splitFullNameToFirstAndLast = (customer) => {
  * @param {string} key The name of a key to access on the object
  * @returns {any} value - The value you have accessed on the object
  */
-export const accessGivenKey = (object, key) => {
+export const accessGivenKey = (object: any, key: string): any => {
   return;
 };
 
@@ -100,8 +109,8 @@ export const accessGivenKey = (object, key) => {
  * @param {{id: number, name: string, address: {line1: string, line2: string, city: string, postcode: string}}} user - A user object from the database
  * @returns {string} An address string for a shipping label
  */
-export const getUserAddress = (user) => {
-  return;
+export const getUserAddress = (user: ShippingUser): string => {
+  return "";
 };
 
 /**
@@ -112,8 +121,10 @@ export const getUserAddress = (user) => {
  * @param {string[]} allergenList - A list of all known allergens
  * @return {{id: number, name: string, allergies: string[], safeAllergens: string[]}} customer
  */
-export const setSafeAllergens = (customer, allergenList) => {
-  return;
+export const setSafeAllergens = (customer: RestaurantCustomer, allergenList: string[]): CompleteRestaurantCustomer => {
+  const defaultCustomer = { id: -1, name: "", allergies: [""], safeAllergens: [""] };
+
+  return defaultCustomer;
 };
 
 /* Expert Challenges */
@@ -126,6 +137,11 @@ export const setSafeAllergens = (customer, allergenList) => {
  * @param {{id: number, name: string, price: number, isAvailable: boolean}} furnitureProductData - All of the data about the furniture product
  * @returns {{id: number, location: string, sku: string, name: string, price: number, isAvailable: boolean}}
  */
-export const mergeFurniture = (furnitureLocationData, furnitureProductData) => {
-  return;
+export const mergeFurniture = (
+  furnitureLocationData: FurnitureLocationData,
+  furnitureProductData: FurnitureProductData
+): FurnitureData => {
+  const defaultFurniture = { id: -1, location: "", sku: "", name: "", price: -1, isAvailable: false };
+
+  return defaultFurniture;
 };

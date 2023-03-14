@@ -1,21 +1,23 @@
 {
-  "name": "js-challenges",
-  "version": "1.0.0",
+  "name": "js-ts-challenges",
   "description": "A repo of JavaScript challenges created for use during web development courses at nology",
-  "main": "index.js",
-  "devDependencies": {
-    "@babel/core": "^7.19.1",
-    "@babel/preset-env": "^7.19.1",
-    "@types/jest": "^26.0.24",
-    "babel-jest": "^26.6.3",
-    "jest": "^26.6.3",
-    "prettier": "^2.7.1"
-  },
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "test-coverage": "jest ./src/js10-unit-testing/challenge.test.js --watch --coverage",
-    "test": "jest",
-    "test-watch": "jest --watch",
+    "test": "vitest",
+    "TODO:-test-coverage": "jest ./src/js10-unit-testing/challenge.test.js --watch --coverage",
+    "TODO:-test-watch": "jest --watch",
     "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.1",
+    "@types/node": "^18.15.3",
+    "jest": "^29.5.0",
+    "prettier": "^2.7.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vitest": "^0.29.2"
   },
   "contributors": [
     {
