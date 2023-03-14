@@ -19,13 +19,18 @@
  */
 
 /** Class representing a coordinate. */
-export class Coordinate {
+export class Coordinate implements ICoordinate {
+  xCoord = -1;
+  yCoord = -1;
+
   /**
    * Create a coordinate.
    * @param {number} xCoord - 22.
    * @param {number} yCoord - 20.
    */
-  constructor(xCoord, yCoord) {}
+  constructor(xCoord: number, yCoord: number) {
+    console.log(xCoord, yCoord);
+  }
 }
 
 /**
@@ -41,7 +46,8 @@ export class Coordinate {
  */
 
 /** Class representing an alert. */
-export class Alert {
+export class Alert implements IAlert {
+  message = "";
   /**
    * Create an alert.
    * @param {string} message - "Are sure you want to proceed?"
@@ -53,7 +59,7 @@ export class Alert {
    * @return {string} "!!!! Are sure you want to proceed? !!!!"
    */
   printMessage() {
-    return;
+    return "";
   }
 }
 
@@ -76,7 +82,8 @@ export class Alert {
  */
 
 /** Class representing a loader. */
-export class Loader {
+export class Loader implements ILoader {
+  htmlRef = { innerHTML: "" };
   /**
    * Create a loader.
    * @param {{innerHTML:string}} htmlRef - {innerHTML:""}
@@ -116,7 +123,8 @@ export class Loader {
  */
 
 /** Class representing a Counter. */
-export class Counter {
+export class Counter implements ICounter {
+  count = -1;
   /**
    * Create an counter.
    * @param {number} count - 50
@@ -159,7 +167,8 @@ export class Counter {
  */
 
 /** Class representing an engine. */
-export class Engine {
+export class Engine implements IEngine {
+  engineIsRunning = true;
   /**
    * Create an engine.
    */
@@ -170,7 +179,7 @@ export class Engine {
    * @return {string} "Engine has started running" or "Engine is already running"
    */
   startEngine() {
-    return;
+    return "";
   }
 
   /**
@@ -178,7 +187,7 @@ export class Engine {
    * @return {string} "Engine has stopped running" or "Engine has already stopped running"
    */
   stopEngine() {
-    return;
+    return "";
   }
 }
 
@@ -213,14 +222,19 @@ export class Engine {
  */
 
 /** Class representing a modal. */
-export class Modal {
+export class Modal implements IModal {
+  htmlRef: HTMLRef;
+  title = "";
+  message = "";
   /**
    * Create a modal.
    * @param {HTMLElement} htmlRef - { innerHTML:"", classList:{ list: [], toggle()}}
    * @param {string} title - "Error"
    * @param {string} message - "We are currently unable to provide this service"
    */
-  constructor() {}
+  constructor(htmlRef: HTMLRef) {
+    this.htmlRef = htmlRef;
+  }
 
   /**
    * A method that renders the html for a modal.
@@ -264,14 +278,16 @@ export class Modal {
  */
 
 /** Class representing a book shelf. */
-export class BookShelf {
+export class BookShelf implements IBookShelf {
+  private _shelfId;
+  private _booksOnShelf;
   /**
    * Create a book shelf.
    * @param {string} shelfId - "aa0050a01"
    * @param {string[]} booksOnShelf - ["JavaScript for Kids", "Learning JavaScript Design Patterns"]
    *
    */
-  constructor(shelfId, booksOnShelf = []) {
+  constructor(shelfId: string, booksOnShelf: string[] = []) {
     this._shelfId = shelfId;
     this._booksOnShelf = booksOnShelf;
   }
@@ -288,7 +304,7 @@ export class BookShelf {
    * A setter that replaces the current books on the shelf with a new list of books.
    * @param {string[]} bookArray ["Learn JavaScript Visually"]
    */
-  set booksOnShelf(bookArray = []) {
+  set booksOnShelf(bookArray: string[]) {
     this._booksOnShelf = bookArray;
   }
 
