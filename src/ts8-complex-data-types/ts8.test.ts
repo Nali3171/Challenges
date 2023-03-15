@@ -10,20 +10,18 @@ import {
   totalShoppingBasket,
 } from "./challenge";
 
-// REMOVE X FROM xdescribe FUNCTION TO STOP SKIPPING TEST BLOCKS
+// REMOVE .skip FROM describe FUNCTION TO STOP SKIPPING TEST BLOCKS
 
 const mockEmployeeData = [
   {
     name: "Edith Gibson",
-    quote:
-      "Your body is precious. It is our vehicle for awakening. Treat it with care.",
+    quote: "Your body is precious. It is our vehicle for awakening. Treat it with care.",
     yearsEmployed: 14,
     isManagement: true,
   },
   {
     name: "Adam Holmes",
-    quote:
-      "I detest life-insurance agents; they always argue that I shall some day die, which is not so.",
+    quote: "I detest life-insurance agents; they always argue that I shall some day die, which is not so.",
     yearsEmployed: 1,
     isManagement: false,
   },
@@ -36,8 +34,7 @@ const mockEmployeeData = [
   },
   {
     name: "Adelaide Owens",
-    quote:
-      "Columbus found a world, and had no chart save one that Faith deciphered in the skies.",
+    quote: "Columbus found a world, and had no chart save one that Faith deciphered in the skies.",
     yearsEmployed: 9,
     isManagement: false,
   },
@@ -59,37 +56,37 @@ describe("getEmployeeQuotes() tests", () => {
       "Only learn to seize good fortune, for good fortune is always here.",
     ]);
   });
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
+  });
 });
 
-xdescribe("getTheManagers() tests", () => {
+describe.skip("getTheManagers() tests", () => {
   it("Should return an array containing only employees where isManagement is true", () => {
     expect(getTheManagers(mockEmployeeData)).toStrictEqual([
       {
         name: "Edith Gibson",
-        quote:
-          "Your body is precious. It is our vehicle for awakening. Treat it with care.",
+        quote: "Your body is precious. It is our vehicle for awakening. Treat it with care.",
         yearsEmployed: 14,
         isManagement: true,
       },
       {
         name: "Adison Crawford",
-        quote:
-          "Only learn to seize good fortune, for good fortune is always here.",
+        quote: "Only learn to seize good fortune, for good fortune is always here.",
         yearsEmployed: 7,
         isManagement: true,
       },
     ]);
   });
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
+  });
 });
 
-xdescribe("getNumberOfKeys() tests", () => {
+describe.skip("getNumberOfKeys() tests", () => {
   const object1 = { a: 1, b: 2 };
   const object2 = { a: 1, b: 2, c: 3, d: 4 };
   const object3 = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 };
-
-  it("Should return a number", () => {
-    expect(typeof getNumberOfKeys(object1)).toBe("number");
-  });
 
   it("Should accurately count the number of keys", () => {
     expect(getNumberOfKeys(object1)).toBe(2);
@@ -169,12 +166,7 @@ const mockShoppingBasketWithTotals = [
   },
 ];
 
-xdescribe("findMostExpensiveItem() tests", () => {
-  it("Should return a single object", () => {
-    expect(findMostExpensiveItem(mockShoppingBasket)).toHaveProperty("name");
-    expect(findMostExpensiveItem(mockShoppingBasket).name).toBe("hoodie");
-  });
-
+describe.skip("findMostExpensiveItem() tests", () => {
   it("Should return the most expensive item which is a hoodie", () => {
     expect(findMostExpensiveItem(mockShoppingBasket)).toStrictEqual({
       name: "hoodie",
@@ -185,45 +177,29 @@ xdescribe("findMostExpensiveItem() tests", () => {
   });
 });
 
-xdescribe("setTotalPrice() tests", () => {
-  it("Should return an array", () => {
-    expect(Array.isArray(setTotalPrice(mockShoppingBasket))).toBe(true);
-  });
-
+describe.skip("setTotalPrice() tests", () => {
   it("Should not modify original array of objects", () => {
-    expect(setTotalPrice(mockShoppingBasket)).not.toStrictEqual(
-      mockShoppingBasket
-    );
-  });
-
-  it("Should add a totalPrice key to each object", () => {
-    setTotalPrice(mockShoppingBasket).forEach((item) => {
-      expect(item).toHaveProperty("totalPrice");
-    });
+    expect(setTotalPrice(mockShoppingBasket)).not.toStrictEqual(mockShoppingBasket);
   });
 
   it("Should accurately total each shopping item", () => {
-    expect(
-      setTotalPrice(mockShoppingBasket).sort((a, b) => a.price - b.price)
-    ).toStrictEqual(
+    expect(setTotalPrice(mockShoppingBasket).sort((a, b) => a.price - b.price)).toStrictEqual(
       mockShoppingBasketWithTotals.sort((a, b) => a.price - b.price)
     );
   });
+
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
+  });
 });
 
-xdescribe("totalShoppingBasket() tests", () => {
-  it("Should return a number", () => {
-    expect(typeof totalShoppingBasket(mockShoppingBasketWithTotals)).toBe(
-      "number"
-    );
-  });
-
+describe.skip("totalShoppingBasket() tests", () => {
   it("Should accurately total all objects", () => {
     expect(totalShoppingBasket(mockShoppingBasketWithTotals)).toBe(185);
   });
 });
 
-xdescribe("getImportantKeys() tests", () => {
+describe.skip("getImportantKeys() tests", () => {
   const mealsArr = [
     {
       id: 10,
@@ -251,44 +227,53 @@ xdescribe("getImportantKeys() tests", () => {
     },
   ];
 
+  const resultsArr = [
+    {
+      id: 10,
+      name: "Tikka Masala",
+      ingredients: ["rice", "tomato", "chicken", "curry powder"],
+      country: "India",
+    },
+    {
+      id: 11,
+      name: "Grilled Cheese",
+      ingredients: ["bread", "cheese", "butter"],
+      country: "America",
+    },
+    {
+      id: 12,
+      name: "Gourmet Burger",
+      ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
+      country: "America",
+    },
+  ];
+
   it("Should not modify the original array", () => {
     expect(getImportantKeys(mealsArr)).not.toStrictEqual(mealsArr);
   });
 
   it("Should remove unneeded keys from the objects", () => {
-    expect(getImportantKeys(mealsArr)[0]).toStrictEqual({
-      id: 10,
-      name: "Tikka Masala",
-      ingredients: ["rice", "tomato", "chicken", "curry powder"],
-      country: "India",
-    });
+    expect(getImportantKeys(mealsArr)[0]).toStrictEqual(resultsArr[0]);
   });
 
   it("Should alter every item in the array", () => {
-    expect(getImportantKeys(mealsArr)[0]).not.toStrictEqual([
-      {
-        id: 10,
-        name: "Tikka Masala",
-        ingredients: ["rice", "tomato", "chicken", "curry powder"],
-        country: "India",
-      },
-      {
-        id: 11,
-        name: "Grilled Cheese",
-        ingredients: ["bread", "cheese", "butter"],
-        country: "America",
-      },
-      {
-        id: 12,
-        name: "Gourmet Burger",
-        ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
-        country: "America",
-      },
-    ]);
+    const result = getImportantKeys(mealsArr);
+
+    if (!result.length) {
+      throw new Error();
+    }
+
+    result.forEach((el, index) => {
+      expect(el).toStrictEqual(resultsArr[index]);
+    });
+  });
+
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
   });
 });
 
-xdescribe("setImportantKeys() tests", () => {
+describe.skip("setImportantKeys() tests", () => {
   const mealsArr = [
     {
       id: 10,
@@ -314,13 +299,35 @@ xdescribe("setImportantKeys() tests", () => {
     },
   ];
 
+  const resultsArr = [
+    {
+      id: 10,
+      name: "Tikka Masala",
+      ingredients: ["rice", "tomato", "chicken", "curry powder"],
+      country: "India",
+      isVegetarian: false,
+      timeToCook: 60,
+    },
+    {
+      id: 11,
+      name: "Grilled Cheese",
+      ingredients: ["bread", "cheese", "butter"],
+      country: "America",
+      isVegetarian: true,
+      timeToCook: 15,
+    },
+    {
+      id: 12,
+      name: "Gourmet Burger",
+      ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
+      country: "America",
+      isVegetarian: false,
+      timeToCook: 45,
+    },
+  ];
+
   it("Should not modify the original array", () => {
     expect(setImportantKeys(mealsArr)).not.toStrictEqual(mealsArr);
-  });
-
-  it("Should add missing keys", () => {
-    expect(setImportantKeys(mealsArr)[0]).toHaveProperty("isVegetarian");
-    expect(setImportantKeys(mealsArr)[1]).toHaveProperty("timeToCook");
   });
 
   it("should not modify existing values", () => {
@@ -331,36 +338,15 @@ xdescribe("setImportantKeys() tests", () => {
   });
 
   it("Should match this exact array of objects", () => {
-    expect(setImportantKeys(mealsArr)).toStrictEqual([
-      {
-        id: 10,
-        name: "Tikka Masala",
-        ingredients: ["rice", "tomato", "chicken", "curry powder"],
-        country: "India",
-        isVegetarian: false,
-        timeToCook: 60,
-      },
-      {
-        id: 11,
-        name: "Grilled Cheese",
-        ingredients: ["bread", "cheese", "butter"],
-        country: "America",
-        isVegetarian: true,
-        timeToCook: 15,
-      },
-      {
-        id: 12,
-        name: "Gourmet Burger",
-        ingredients: ["beef mince", "onion", "mustard", "salt", "pepper"],
-        country: "America",
-        isVegetarian: false,
-        timeToCook: 45,
-      },
-    ]);
+    expect(setImportantKeys(mealsArr)).toStrictEqual(resultsArr);
+  });
+
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
   });
 });
 
-xdescribe("cleanCocktailResponseData() tests", () => {
+describe.skip("cleanCocktailResponseData() tests", () => {
   const mockCocktailData = [
     {
       idDrink: 12768,
@@ -381,8 +367,7 @@ xdescribe("cleanCocktailResponseData() tests", () => {
       strDrink: "Godchild",
       strCategory: "Ordinary Drink",
       strAlcoholic: "Alcoholic",
-      strInstructions:
-        "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
+      strInstructions: "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
       strIngredient1: "Vodka",
       strIngredient2: "Amaretto",
       strIngredient3: "Heavy cream",
@@ -395,8 +380,7 @@ xdescribe("cleanCocktailResponseData() tests", () => {
       strDrink: "Cuba Libre",
       strCategory: "Ordinary Drink",
       strAlcoholic: "Alcoholic",
-      strInstructions:
-        "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
+      strInstructions: "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
       strIngredient1: "Light rum",
       strIngredient2: "Lime",
       strIngredient3: "Coca-Cola",
@@ -421,70 +405,11 @@ xdescribe("cleanCocktailResponseData() tests", () => {
   ];
 
   it("Should not mutate the original array", () => {
-    expect(cleanCocktailResponseData(mockCocktailData)).not.toStrictEqual(
-      mockCocktailData
-    );
-  });
-
-  it("Should remove old keys", () => {
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "idDrink"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strDrink"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strCategory"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strAlcoholic"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strInstructions"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients1"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients2"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients3"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients4"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients5"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).not.toHaveProperty(
-      "strIngredients6"
-    );
-  });
-
-  it("Should rename keys", () => {
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty("id");
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
-      "drink"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
-      "category"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
-      "alcoholic"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
-      "instructions"
-    );
-    expect(cleanCocktailResponseData(mockCocktailData)[0]).toHaveProperty(
-      "ingredients"
-    );
+    expect(cleanCocktailResponseData(mockCocktailData)).not.toStrictEqual(mockCocktailData);
   });
 
   it("Should add an array for the ingredients", () => {
-    expect(
-      Array.isArray(cleanCocktailResponseData(mockCocktailData)[0].ingredients)
-    ).toBe(true);
+    expect(Array.isArray(cleanCocktailResponseData(mockCocktailData)[0].ingredients)).toBe(true);
   });
 
   it("Should match given structure", () => {
@@ -503,8 +428,7 @@ xdescribe("cleanCocktailResponseData() tests", () => {
         drink: "Godchild",
         category: "Ordinary Drink",
         alcoholic: "Alcoholic",
-        instructions:
-          "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
+        instructions: "Shake all ingredients well with cracked ice, strain into a champagne flute, and serve.",
         ingredients: ["Vodka", "Amaretto", "Heavy cream"],
       },
       {
@@ -512,8 +436,7 @@ xdescribe("cleanCocktailResponseData() tests", () => {
         drink: "Cuba Libre",
         category: "Ordinary Drink",
         alcoholic: "Alcoholic",
-        instructions:
-          "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
+        instructions: "Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.",
         ingredients: ["Light rum", "Lime", "Coca-Cola"],
       },
       {
@@ -526,5 +449,9 @@ xdescribe("cleanCocktailResponseData() tests", () => {
         ingredients: ["Scotch", "Drambuie", "Lemon peel"],
       },
     ]);
+  });
+
+  it("Should return an empty array if given a empty array", () => {
+    expect(getEmployeeQuotes([])).toStrictEqual([]);
   });
 });

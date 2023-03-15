@@ -16,8 +16,8 @@
  * @param {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} employeeArr - An array of employee objects
  * @returns {string[]} A list of the employees quotes for the website
  */
-export const getEmployeeQuotes = (employeeArr) => {
-  return;
+export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
+  return [""];
 };
 
 /**
@@ -26,8 +26,8 @@ export const getEmployeeQuotes = (employeeArr) => {
  * @param {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} employeeArr - An array of employee objects
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
-export const getTheManagers = (employeeArr) => {
-  return;
+export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
+  return [];
 };
 
 /**
@@ -36,8 +36,8 @@ export const getTheManagers = (employeeArr) => {
  * @param {object} object - The provided object with an assortment of keys
  * @returns {number} The number of the keys on the object
  */
-export const getNumberOfKeys = (object) => {
-  return;
+export const getNumberOfKeys = (object: object): number => {
+  return -1;
 };
 
 /* Intermediate Challenges */
@@ -49,8 +49,10 @@ export const getNumberOfKeys = (object) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
-export const findMostExpensiveItem = (shoppingBasketArr) => {
-  return;
+export const findMostExpensiveItem = (shoppingBasketArr: Product[]): Product => {
+  const defaultProduct = { name: "", price: -1, hasFreeShipping: false, quantity: -1 };
+
+  return defaultProduct;
 };
 
 /**
@@ -70,8 +72,8 @@ export const findMostExpensiveItem = (shoppingBasketArr) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} A new array where each object has had a total price added to it
  */
-export const setTotalPrice = (shoppingBasketArr) => {
-  return;
+export const setTotalPrice = (shoppingBasketArr: Product[]): CompleteProduct[] => {
+  return [];
 };
 
 /**
@@ -80,8 +82,8 @@ export const setTotalPrice = (shoppingBasketArr) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number, totalPrice: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {number} The total cost of the order
  */
-export const totalShoppingBasket = (shoppingBasketArr) => {
-  return;
+export const totalShoppingBasket = (shoppingBasketArr: CompleteProduct[]): number => {
+  return -1;
 };
 
 /* Advanced Challenges */
@@ -95,8 +97,8 @@ export const totalShoppingBasket = (shoppingBasketArr) => {
  * @param {{id: number, name: string, ingredients: string[], country: string, timeStamp: number, userCreated: string}[]} mealsArr - An array containing meal objects
  * @returns {{id: number, name: string, ingredients: string[], country: string}[]} An array of cleaned meal objects
  */
-export const getImportantKeys = (mealsArr) => {
-  return;
+export const getImportantKeys = (mealsArr: LargeMeal[]): LeanMeal[] => {
+  return [];
 };
 
 /**
@@ -110,8 +112,8 @@ export const getImportantKeys = (mealsArr) => {
  * @param {{id: number, name: string, ingredients: string[], country: string, isVegetarian?: boolean, timeToCook?: number}[]} mealsArr - An array containing meal objects
  * @returns {{id: number, name: string, ingredients: string[], country: string, isVegetarian: boolean, timeToCook: number}[]}
  */
-export const setImportantKeys = (mealsArr) => {
-  return;
+export const setImportantKeys = (mealsArr: OptionalMeal[]): MandatoryMeal[] => {
+  return [];
 };
 
 /* Expert Challenges */
@@ -144,6 +146,6 @@ export const setImportantKeys = (mealsArr) => {
  *  ingredients: string[],
  * }[]} A Cleaned array of cocktail data
  */
-export const cleanCocktailResponseData = (cocktailData) => {
-  return;
+export const cleanCocktailResponseData = (cocktailData: CocktailResponse[]): Cocktail[] => {
+  return [];
 };
