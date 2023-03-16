@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["src", "old/js1-types-and-control-flow"],
+  "include": ["src"],
   "exclude": ["node_modules", "old"],
   "types": ["jest", "node"]
 }
