@@ -6,7 +6,7 @@
  * A function which returns a greeting
  * @returns {string} "Hello, nice to meet you"
  */
-export const greet = () => {
+export const greet = (): string => {
   return "Hello, nice to meet you";
 };
 
@@ -16,7 +16,7 @@ export const greet = () => {
  * @param {number} secondNumber
  * @returns {number}
  */
-export const sumTwoNumbers = (firstNumber, secondNumber) => {
+export const sumTwoNumbers = (firstNumber: number, secondNumber: number): number => {
   return firstNumber + secondNumber;
 };
 
@@ -26,7 +26,7 @@ export const sumTwoNumbers = (firstNumber, secondNumber) => {
  * @param {number} secondNumber
  * @returns {string}
  */
-export const checkLarger = (firstNumber, secondNumber) => {
+export const checkLarger = (firstNumber: number, secondNumber: number): string => {
   if (firstNumber === secondNumber) {
     return "Both numbers are equal";
   } else if (firstNumber > secondNumber) {
@@ -41,8 +41,8 @@ export const checkLarger = (firstNumber, secondNumber) => {
  * @param {array} names
  * @returns {array | string} array of valid names or a string "Sorry, no valid names supplied"
  */
-export const filterByLength = (names) => {
-  const validNames = names.filter((name) => name.length <= 6);
+export const filterByLength = (names: string[]): string[] | "Sorry, no valid names supplied" => {
+  const validNames = names.filter(name => name.length <= 6);
   if (validNames[0]) {
     return validNames;
   } else {
@@ -58,8 +58,8 @@ export const filterByLength = (names) => {
  * @param {number} reducer an amount to reduce each value in the array by
  * @returns {array} of values between 0 - 255
  */
-export const reduceNumbers = (numbers, reducer) => {
-  return numbers.map((number) => {
+export const reduceNumbers = (numbers: number[], reducer: number): number[] => {
+  return numbers.map(number => {
     if (number - reducer <= 0) {
       return 0;
     } else if (number - reducer >= 255) {

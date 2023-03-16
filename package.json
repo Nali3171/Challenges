@@ -6,13 +6,13 @@
   "type": "module",
   "scripts": {
     "test": "vitest",
-    "TODO:-test-coverage": "jest ./src/js10-unit-testing/challenge.test.js --watch --coverage",
-    "TODO:-test-watch": "jest --watch",
+    "test-coverage": "vitest run --coverage ./src/ts10-unit-testing/challenge.test.ts",
     "format": "prettier --write ."
   },
   "devDependencies": {
     "@types/jest": "^29.4.1",
     "@types/node": "^18.15.3",
+    "@vitest/coverage-c8": "^0.29.3",
     "jest": "^29.5.0",
     "prettier": "^2.7.1",
     "typescript": "^4.9.3",
