@@ -17,8 +17,8 @@
  * @param {string} url - The url of the API to fetch from
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The data from the API
  */
-export const getData = async (url) => {
-  return;
+export const getData = async (url: string): Promise<Person[]> => {
+  return [];
 };
 
 /**
@@ -27,8 +27,8 @@ export const getData = async (url) => {
  * @param {string} url - The url of the API to fetch from
  * @returns {string[]} The list of names on each object from the API
  */
-export const getNames = async (url) => {
-  return;
+export const getNames = async (url: string): Promise<string[]> => {
+  return [];
 };
 
 /**
@@ -37,8 +37,8 @@ export const getNames = async (url) => {
  * @param {string} url - The url of the API to fetch from
  * @return {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The employed people from the API
  */
-export const getEmployedPeople = async (url) => {
-  return;
+export const getEmployedPeople = async (url: string): Promise<EmployedPerson[]> => {
+  return [];
 };
 
 /* Intermediate Challenges */
@@ -51,8 +51,8 @@ export const getEmployedPeople = async (url) => {
  * @param {string} id - The ID of the person object to return
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean} | string} A person object OR A string saying "Person not found"
  */
-export const findPersonWithId = async (url, id) => {
-  return;
+export const findPersonWithId = async (url: string, id: string): Promise<Person | "Person not found"> => {
+  return "Person not found";
 };
 
 /**
@@ -65,8 +65,11 @@ export const findPersonWithId = async (url, id) => {
  * @param {string} interest - The interest to match
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[] | string} A group of person objects OR A string saying "No people with interest found"
  */
-export const getPeopleWithMatchingInterests = async (url, interest) => {
-  return;
+export const getPeopleWithMatchingInterests = async (
+  url: string,
+  interest: string
+): Promise<Person[] | "No people with interest found"> => {
+  return "No people with interest found";
 };
 
 /* Advanced Challenges */
@@ -103,8 +106,8 @@ export const getPeopleWithMatchingInterests = async (url, interest) => {
  * @param {string} url - The url of the API to fetch from
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean, description: string}[]} A group of person objects with added description key
  */
-export const setDescriptions = async (url) => {
-  return;
+export const setDescriptions = async (url: string): Promise<CompletePerson[]> => {
+  return [];
 };
 
 /* Expert Challenges */
@@ -153,6 +156,6 @@ export const setDescriptions = async (url) => {
  *  isEmployed: boolean,
  * }[]}
  */
-export const setInterestDetails = async (peopleUrl, interestsUrl) => {
-  return;
+export const setInterestDetails = async (peopleUrl: string, interestsUrl: string): Promise<InterestingPerson[]> => {
+  return [];
 };

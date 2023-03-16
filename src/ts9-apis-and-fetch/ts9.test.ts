@@ -1,3 +1,5 @@
+import people from "./mockPersonApi.json";
+import { vi } from "vitest";
 import {
   findPersonWithId,
   getData,
@@ -7,18 +9,17 @@ import {
   setDescriptions,
   setInterestDetails,
 } from "./challenge";
-import people from "./mockPersonApi.json";
 
-// REMOVE X FROM xdescribe FUNCTION TO STOP SKIPPING TEST BLOCKS
+// REMOVE .skip FROM describe FUNCTION TO STOP SKIPPING TEST BLOCKS
 
 beforeEach(() => {
-  const mockFetch = jest.fn().mockImplementation((args) =>
+  const mockFetch = vi.fn().mockImplementation(args =>
     Promise.resolve({
       json: () => require(args),
     })
   );
 
-  window.fetch = mockFetch;
+  global.fetch = mockFetch;
 });
 
 describe("getData() tests", () => {
@@ -33,7 +34,7 @@ describe("getData() tests", () => {
   });
 });
 
-xdescribe("getNames() tests", () => {
+describe.skip("getNames() tests", () => {
   it("Fetch should have been called once", () => {
     getNames("./mockPersonApi.json");
     expect(fetch).toHaveBeenCalledTimes(1);
@@ -41,20 +42,12 @@ xdescribe("getNames() tests", () => {
 
   it("Should return an array of names", async () => {
     const namesArr = await getNames("./mockPersonApi.json");
-    expect(Array.isArray(namesArr)).toBe(true);
-    expect(namesArr).toStrictEqual([
-      "Peter",
-      "Georgia",
-      "Joanna",
-      "Buzz",
-      "Travis",
-      "Paula",
-      "J",
-    ]);
+
+    expect(namesArr).toStrictEqual(["Peter", "Georgia", "Joanna", "Buzz", "Travis", "Paula", "J"]);
   });
 });
 
-xdescribe("getEmployedPeople() tests", () => {
+describe.skip("getEmployedPeople() tests", () => {
   const mockApiResponse = [
     {
       id: "001",
@@ -90,13 +83,12 @@ xdescribe("getEmployedPeople() tests", () => {
   it("Should return an array of employed people objects", async () => {
     const employedPeopleArr = await getEmployedPeople("./mockPersonApi.json");
 
-    expect(Array.isArray(employedPeopleArr)).toBe(true);
     expect(employedPeopleArr.length).toBe(3);
     expect(employedPeopleArr).toStrictEqual(mockApiResponse);
   });
 });
 
-xdescribe("findPersonWithId() tests", () => {
+describe.skip("findPersonWithId() tests", () => {
   const dummyId001 = {
     id: "001",
     name: "Peter",
@@ -115,15 +107,6 @@ xdescribe("findPersonWithId() tests", () => {
     isEmployed: true,
   };
 
-  it("Should return a single object", async () => {
-    const returnFromFunction = await findPersonWithId(
-      "./mockPersonApi.json",
-      "001"
-    );
-    expect(typeof returnFromFunction).toBe("object");
-    expect(returnFromFunction).toHaveProperty("id");
-  });
-
   it("Should return a person with the id of 001", async () => {
     const personId001 = await findPersonWithId("./mockPersonApi.json", "001");
     expect(personId001).toStrictEqual(dummyId001);
@@ -140,7 +123,7 @@ xdescribe("findPersonWithId() tests", () => {
   });
 });
 
-xdescribe("getPeopleWithMatchingInterests() tests", () => {
+describe.skip("getPeopleWithMatchingInterests() tests", () => {
   const dummySwimming = [
     {
       id: "001",
@@ -179,40 +162,23 @@ xdescribe("getPeopleWithMatchingInterests() tests", () => {
     },
   ];
 
-  it("Should return an array if interests are found", async () => {
-    const swimmingInterest = await getPeopleWithMatchingInterests(
-      "./mockPersonApi.json",
-      "swimming"
-    );
-    expect(Array.isArray(swimmingInterest)).toBe(true);
-  });
-
   it("Should return all people with a matching interest (swimming)", async () => {
-    const swimmingInterest = await getPeopleWithMatchingInterests(
-      "./mockPersonApi.json",
-      "swimming"
-    );
+    const swimmingInterest = await getPeopleWithMatchingInterests("./mockPersonApi.json", "swimming");
     expect(swimmingInterest).toStrictEqual(dummySwimming);
   });
 
   it("Should return all people with a matching interest (mma)", async () => {
-    const mmaInterests = await getPeopleWithMatchingInterests(
-      "./mockPersonApi.json",
-      "MMA"
-    );
+    const mmaInterests = await getPeopleWithMatchingInterests("./mockPersonApi.json", "MMA");
     expect(mmaInterests).toStrictEqual(dummyMma);
   });
 
   it("Should return 'No people with interest found' if no matching interests on people", async () => {
-    const noInterests = await getPeopleWithMatchingInterests(
-      "./mockPersonApi.json",
-      "whittling"
-    );
+    const noInterests = await getPeopleWithMatchingInterests("./mockPersonApi.json", "whittling");
     expect(noInterests).toBe("No people with interest found");
   });
 });
 
-xdescribe("setDescription() tests", () => {
+describe.skip("setDescription() tests", () => {
   const dummyDescriptions = [
     {
       age: 47,
@@ -287,17 +253,8 @@ xdescribe("setDescription() tests", () => {
   ];
 
   it("Should not modify original data", async () => {
-    const peopleWithDescriptions = await setDescriptions(
-      "./mockPersonApi.json"
-    );
+    const peopleWithDescriptions = await setDescriptions("./mockPersonApi.json");
     expect(peopleWithDescriptions).not.toStrictEqual(people);
-  });
-
-  it("Should add a description key", async () => {
-    const peopleWithDescriptions = await setDescriptions(
-      "./mockPersonApi.json"
-    );
-    expect(peopleWithDescriptions[0]).toHaveProperty("description");
   });
 
   it("Should add accurate description to each object", async () => {
@@ -306,7 +263,7 @@ xdescribe("setDescription() tests", () => {
   });
 });
 
-xdescribe("setInterestDetails() tests", () => {
+describe.skip("setInterestDetails() tests", () => {
   const dummyDetailedInterests = [
     {
       age: 47,
@@ -505,38 +462,21 @@ xdescribe("setInterestDetails() tests", () => {
   });
 
   it("Should not modify original data", async () => {
-    const detailedInterestsResponse = await setInterestDetails(
-      "./mockPersonApi.json",
-      "./mockInterestsApi.json"
-    );
+    const detailedInterestsResponse = await setInterestDetails("./mockPersonApi.json", "./mockInterestsApi.json");
     expect(detailedInterestsResponse).not.toStrictEqual(people);
   });
 
   it("Should turn the interests key into an array of objects", async () => {
-    const detailedInterestsResponse = await setInterestDetails(
-      "./mockPersonApi.json",
-      "./mockInterestsApi.json"
-    );
+    const detailedInterestsResponse = await setInterestDetails("./mockPersonApi.json", "./mockInterestsApi.json");
     expect(Array.isArray(detailedInterestsResponse[0].interests)).toBe(true);
-    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty(
-      "costPerAnnum"
-    );
-    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty(
-      "interest"
-    );
-    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty(
-      "isDoneInGroups"
-    );
-    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty(
-      "sizeOfCommunity"
-    );
+    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty("costPerAnnum");
+    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty("interest");
+    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty("isDoneInGroups");
+    expect(detailedInterestsResponse[0].interests[0]).toHaveProperty("sizeOfCommunity");
   });
 
   it("Should match the exact dummy array of objects", async () => {
-    const detailedInterestsResponse = await setInterestDetails(
-      "./mockPersonApi.json",
-      "./mockInterestsApi.json"
-    );
+    const detailedInterestsResponse = await setInterestDetails("./mockPersonApi.json", "./mockInterestsApi.json");
     expect(detailedInterestsResponse).toStrictEqual(dummyDetailedInterests);
   });
 });
