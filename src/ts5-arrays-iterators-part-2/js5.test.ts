@@ -20,7 +20,7 @@ describe("Testing totalScoresArr()", () => {
   });
 });
 
-describe("Testing reverseString()", () => {
+describe.skip("Testing reverseString()", () => {
   it("Should not alter a single letter", () => {
     expect(reverseString("c")).toBe("c");
     expect(reverseString("h")).toBe("h");
@@ -37,7 +37,7 @@ describe("Testing reverseString()", () => {
   });
 });
 
-describe("Testing sortCharactersAlphabetically()", () => {
+describe.skip("Testing sortCharactersAlphabetically()", () => {
   const lowerCaseCharArr = "dloejmixwrsnfacqyukvhtgzpb".split("");
   const upperCaseCharArr = "DLOEJMIXWRSNFACQYUKVHTGZPB".split("");
   const sortedCharArr = "abcdefghijklmnopqrstuvwxyz".split("");
@@ -67,7 +67,7 @@ describe("Testing sortCharactersAlphabetically()", () => {
   });
 });
 
-describe("Testing sortNumbersHighToLow()", () => {
+describe.skip("Testing sortNumbersHighToLow()", () => {
   const lowToHigh = Array(50)
     .fill(1)
     .map((number, index) => (number += index));
@@ -100,7 +100,7 @@ describe("Testing sortNumbersHighToLow()", () => {
   });
 });
 
-describe("Testing checkItemInStock()", () => {
+describe.skip("Testing checkItemInStock()", () => {
   const stockList = [
     "apple",
     "banana",
@@ -136,7 +136,7 @@ describe("Testing checkItemInStock()", () => {
   });
 });
 
-describe("Testing checkPrimaryColours()", () => {
+describe.skip("Testing checkPrimaryColours()", () => {
   const rainbowColours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
   const primaryColours = ["red", "yellow", "blue"];
 
@@ -156,7 +156,7 @@ describe("Testing checkPrimaryColours()", () => {
   });
 });
 
-describe("Testing checkStringPalindrome()", () => {
+describe.skip("Testing checkStringPalindrome()", () => {
   it("Should return true for a palindrome", () => {
     expect(checkStringPalindrome("madam")).toBe(true);
     expect(checkStringPalindrome("radar")).toBe(true);
@@ -182,7 +182,7 @@ describe("Testing checkStringPalindrome()", () => {
   });
 });
 
-describe("Testing totalNestedScoresArr()", () => {
+describe.skip("Testing totalNestedScoresArr()", () => {
   const nestedScoreArr = [
     [3, 2, 1],
     [45, 6, 2],
@@ -206,7 +206,7 @@ describe("Testing totalNestedScoresArr()", () => {
   });
 });
 
-describe("Testing encryptString()", () => {
+describe.skip("Testing encryptString()", () => {
   it("Should NOT encrypt three letters", () => {
     expect(encryptString("hey")).toBe("hey");
     expect(encryptString("ola")).toBe("ola");

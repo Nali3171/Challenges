@@ -1,6 +1,6 @@
 {
   "name": "js-ts-challenges",
-  "description": "A repo of JavaScript challenges created for use during web development courses at nology",
+  "description": "A repo of JavaScript and Typescript challenges created for use during web development courses at nology",
   "private": true,
   "version": "1.0.0",
   "type": "module",
