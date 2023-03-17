@@ -15,7 +15,7 @@
     "noImplicitReturns": true,
     "skipLibCheck": true
   },
-  "include": ["src"],
+  "include": ["src", "src/ts5-arrays-iterators-part-2"],
   "exclude": ["node_modules", "old"],
   "types": ["jest", "node"]
 }
