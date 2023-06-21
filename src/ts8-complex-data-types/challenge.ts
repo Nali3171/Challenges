@@ -27,7 +27,7 @@ export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
-  return [];
+  return [] as Manager[];
 };
 
 /**
