@@ -24,6 +24,13 @@ npm install
 npm test
 ```
 
+Will launch the the testing UI in your default browser.
+
+You can click into the folder you are working on to see and re run the tests.
+
+You are able to view console.log() in the Console tab.
+You are also able to view the tests in the Code tab.
+
 When you want tests to stop running you can press `q` in the terminal to quit or ctrl + c to kill the process.
 
 ### Individual tests
