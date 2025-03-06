@@ -6,7 +6,7 @@
   and may require you to google things in order to solve them. If you find an answer online somewhere, be kind and
   share it with the group!
 */
-
+ 
 /* Foundation Challenges */
 
 /**
@@ -17,7 +17,8 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName: string, lastName: string): string => {
-  return "";
+  const fullName = firstName + '' + lastName;
+  return fullName;
 };
 
 /**
@@ -28,8 +29,13 @@ export const createFullName = (firstName: string, lastName: string): string => {
  * @param {number} number2 200
  * @returns {number} 100
  */
-export const findSmallestNumber = (/* Write the parameters here */): number => {
-  return -1;
+export const findSmallestNumber = (number1, number2): number => {
+  if (number1<number2){
+    return number 1;
+  }
+  else{
+    return number 2;
+  }
 };
 
 /**
@@ -40,8 +46,8 @@ export const findSmallestNumber = (/* Write the parameters here */): number => {
  * @param {number} number2 6
  * @returns {number} 18
  */
-export const multiplyNumbers = (/* Write the parameters here */): number => {
-  return -1;
+export const multiplyNumbers = ( number1, number2): number => {
+    return number1 * number2;
 };
 
 /* Intermediate Challenges */
@@ -56,11 +62,14 @@ export const multiplyNumbers = (/* Write the parameters here */): number => {
  * @param {number} highScore 325
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
-export const checkIfNewHighScore = (
-  score: number,
-  highScore: number
-): "You got a new high score!" | "So close!" | "Better luck next time!" => {
-  return "So close!";
+export const checkIfNewHighScore = (score,highScore) =>{
+  if (score < highScore) {
+    return 'You got a new high score!';
+  }
+  else if (score === highScore){
+    return 'So close!';
+  }
+  return 'Better luck next time!';
 };
 
 /**
@@ -113,7 +122,7 @@ export const getGrade = (score: number): string => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius: number): number => {
-  return -1;
+  
 };
 
 /* Expert Challenges */

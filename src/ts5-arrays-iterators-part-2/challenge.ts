@@ -17,10 +17,10 @@
  *
  * @param {number[]} numberArr [7, 7, 6, 2, 3, 2, 3]
  * @return {number} 30
- */
+ */ 
 
 export const totalScoresArr = (scoresArr: number[]): number => {
-  return -1;
+  array.reduce((acc))
 };
 
 /**

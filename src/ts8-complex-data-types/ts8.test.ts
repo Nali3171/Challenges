@@ -61,7 +61,7 @@ describe("getEmployeeQuotes() tests", () => {
   });
 });
 
-describe.skip("getTheManagers() tests", () => {
+describe("getTheManagers() tests", () => {
   it("Should return an array containing only employees where isManagement is true", () => {
     expect(getTheManagers(mockEmployeeData)).toStrictEqual([
       {
@@ -83,7 +83,7 @@ describe.skip("getTheManagers() tests", () => {
   });
 });
 
-describe.skip("getNumberOfKeys() tests", () => {
+describe("getNumberOfKeys() tests", () => {
   const object1 = { a: 1, b: 2 };
   const object2 = { a: 1, b: 2, c: 3, d: 4 };
   const object3 = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 };
@@ -166,7 +166,7 @@ const mockShoppingBasketWithTotals = [
   },
 ];
 
-describe.skip("findMostExpensiveItem() tests", () => {
+describe("findMostExpensiveItem() tests", () => {
   it("Should return the most expensive item which is a hoodie", () => {
     expect(findMostExpensiveItem(mockShoppingBasket)).toStrictEqual({
       name: "hoodie",
@@ -177,7 +177,7 @@ describe.skip("findMostExpensiveItem() tests", () => {
   });
 });
 
-describe.skip("setTotalPrice() tests", () => {
+describe("setTotalPrice() tests", () => {
   it("Should not modify original array of objects", () => {
     expect(setTotalPrice(mockShoppingBasket)).not.toStrictEqual(mockShoppingBasket);
   });
@@ -193,13 +193,13 @@ describe.skip("setTotalPrice() tests", () => {
   });
 });
 
-describe.skip("totalShoppingBasket() tests", () => {
+describe("totalShoppingBasket() tests", () => {
   it("Should accurately total all objects", () => {
     expect(totalShoppingBasket(mockShoppingBasketWithTotals)).toBe(185);
   });
 });
 
-describe.skip("getImportantKeys() tests", () => {
+describe("getImportantKeys() tests", () => {
   const mealsArr = [
     {
       id: 10,
@@ -273,7 +273,7 @@ describe.skip("getImportantKeys() tests", () => {
   });
 });
 
-describe.skip("setImportantKeys() tests", () => {
+describe("setImportantKeys() tests", () => {
   const mealsArr = [
     {
       id: 10,
@@ -346,7 +346,7 @@ describe.skip("setImportantKeys() tests", () => {
   });
 });
 
-describe.skip("cleanCocktailResponseData() tests", () => {
+describe("cleanCocktailResponseData() tests", () => {
   const mockCocktailData = [
     {
       idDrink: 12768,

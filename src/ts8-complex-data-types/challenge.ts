@@ -17,7 +17,12 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
-  return [""];
+  //employee.quote -> access the value f quote on the object called 'employee'
+  //.map will give us same number of items in the array
+  return employeeArr.map((employee) => {
+    return employee.quote;
+
+  });
 };
 
 /**
@@ -27,7 +32,11 @@ export const getEmployeeQuotes = (employeeArr: Employee[]): string[] => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
-  return [] as Manager[];
+  const managers = employeeArr.filter((employee) =>{
+    return employee.isManagement;
+  }); as Managers[];
+  return managers;
+
 };
 
 /**
@@ -37,7 +46,7 @@ export const getTheManagers = (employeeArr: Employee[]): Manager[] => {
  * @returns {number} The number of the keys on the object
  */
 export const getNumberOfKeys = (object: object): number => {
-  return -1;
+  return object.keys(object).length;
 };
 
 /* Intermediate Challenges */

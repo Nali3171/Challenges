@@ -8,7 +8,7 @@
   and may require you to google things in order to solve them. If you find an answer online somewhere, be kind and
   share it with the group!
 */
-
+ 
 /* Foundation Challenges */
 
 /**
@@ -20,7 +20,8 @@
  */
 
 export const createRecipeString = (ingredientsArr: string[]): string => {
-  return "";
+  const recipeString = ingredientsArr.join("+");
+  return recipeString;
 };
 
 /**
@@ -31,8 +32,11 @@ export const createRecipeString = (ingredientsArr: string[]): string => {
  */
 
 export const getFirstAndLastItems = (itemsArr: string[]): string[] => {
-  return [];
+  const firstName = itemsArr[0];
+  const lastItem = itemsArr[itemsArr.length -1] ;
+  return [firstName, lastItem];
 };
+
 
 /**
  * A function that takes an array of scores and returns the sum of all scores by looping through the array.
@@ -42,7 +46,11 @@ export const getFirstAndLastItems = (itemsArr: string[]): string[] => {
  */
 
 export const totalScores = (scoreArr: number[]): number => {
-  return -1;
+let sum = 0 ;
+for(i = 0; i<scoreArr.length; i++){
+  sum += scoreArr[i];
+}
+return sum;
 };
 
 /* Intermediate Challenges */
@@ -56,7 +64,11 @@ export const totalScores = (scoreArr: number[]): number => {
  */
 
 export const totalRange = (rangeMax: number): number => {
-  return -1;
+   const rangeArr = 0;
+   for(let i = 0; i<rangeMax; i++){
+    rangeArr += i;
+   }
+  return rangeArr; 
 };
 
 /**
@@ -66,9 +78,15 @@ export const totalRange = (rangeMax: number): number => {
  * @return {string[]} ["Dave","Tony","John"]
  */
 
-export const moveFirstAndLastItems = (itemsArr: string[]): string[] => {
-  return [];
+export const moveFirstAndLastItems = (itemsArr: string[]): string[] => { // first do a deep copy
+  const result = [...itemsArr];
+const lastItem = result.pop(); 
+if(lastItem){
+  result.unshift(lastItem);
+}
+return result;
 };
+
 
 /**
  * Read this article on how to clone an array.
@@ -85,7 +103,14 @@ export const moveFirstAndLastItems = (itemsArr: string[]): string[] => {
  */
 
 export const removeEvenNumbers = (numberArr: number[]): number[] => {
-  return [];
+  const oddNumber = [];
+  for (let i =0 ; i < numberArr.length, i++){
+    let currentNumber = numberArr[i];
+    if(currentNumber % 2 !== 0){
+      oddNumber.push(currentNumber);
+    }
+  }
+  return oddNumber;
 };
 
 /* Advanced Challenges */
@@ -99,7 +124,9 @@ export const removeEvenNumbers = (numberArr: number[]): number[] => {
  */
 
 export const generateAverage = (numberArr: number[]): number => {
-  return -1;
+  const total = totalScores(numberArr);
+  const avg = total / numberArr.length;
+  return Math.round(avg) ||0;
 };
 
 /**
@@ -109,10 +136,15 @@ export const generateAverage = (numberArr: number[]): number => {
  * @return {number} [3,2,1]
  */
 
-export const reverseOrder = (toReverseArr: any[]): any[] => {
-  return [];
+export const reverseOrder = (toReverseArr: any[]): any[] => { //.map()
+  const reverseArr = [];
+  for (let i=toReverseArr.length -1; i>=0; i--){
+    reverseArr.push(toReverseArr[i]);
+  }
+  return reverseArr;
+  
 };
-
+//Where i stopped
 /* Expert Challenges */
 
 /**
@@ -130,7 +162,16 @@ export const reverseOrder = (toReverseArr: any[]): any[] => {
  */
 
 export const generateHighscores = (playersArr: string[], scoresArr: number[]): string[] | "invalid inputs" => {
-  return [];
+  if(playersArr.length !== scoresArr.length || !playersArr.length) return "invalid inputs";
+
+    const scores = string[] = [];  //creates an empty array
+    while (scores.length !== playersArr.length){
+      const i = scores.length;
+      const message = `P:${index + 1} ${playersArr[index]} scored ${scoresArr[index]}`;
+      scores.push(message);
+    }
+
+  return scores;
 };
 
 /**
@@ -156,5 +197,12 @@ export const generateHighscores = (playersArr: string[], scoresArr: number[]): s
  */
 
 export const encryptString = (toEncrypt: string): string => {
-  return "";
+  const encryptArray : string[][] = [[], [], []];
+ 
+  for( let i =0; i<toEncrypt.length; i++){
+    const placementIndex = i % 3;
+    const letter = toEncrypt [i];
+    encryptArray[placementIndex].push(letter);
+  }
+  return encryptArray.flat().join("");
 };
