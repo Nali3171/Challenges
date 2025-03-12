@@ -67,7 +67,7 @@ export const addNumbers = (): number => {
 const password = "thisIsMyVeryLongPassword123456789";
 
 export const findLengthOfPassword = (): number => {
- const passwordLength = password.lengthh;
+ const passwordLength = password.length;
  return passwordLength;
 };
 
@@ -111,7 +111,7 @@ const nameTagOption = "Timothy";
 
 export const getIsValidOnNameTag = (): boolean => {
  const firstLetterOfName = nameTagOption.substring(0,1);
- const isValidName = nameTagOption <= 8 & firstLetterOfName === firstLetterOfName.toUpperCase();
+ const isValidName = nameTagOption.length <= 8 && firstLetterOfName === firstLetterOfName.toUpperCase();
  return isValidName;
 };
 
@@ -141,7 +141,7 @@ export const convertStringToNumber = (): number => {
 const stringWithUppercaseLetters = "I Am A String With Uppercase Letters";
 
 export const getHasUppercaseLetters = (): boolean => {
-  const regex = /[A-Z]/g:
+  const regex = /[A-Z]/g;
   const hasUpperCaseLetters = regex.test(stringWithUppercaseLetters);
   return hasUpperCaseLetters;
 };
