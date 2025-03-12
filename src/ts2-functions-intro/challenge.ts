@@ -17,7 +17,7 @@
  * @returns {string} John Smith
  */
 export const createFullName = (firstName: string, lastName: string): string => {
-  const fullName = firstName + '' + lastName;
+  const fullName = firstName + " " + lastName;
   return fullName;
 };
 
@@ -31,10 +31,10 @@ export const createFullName = (firstName: string, lastName: string): string => {
  */
 export const findSmallestNumber = (number1, number2): number => {
   if (number1<number2){
-    return number 1;
+    return number1;
   }
   else{
-    return number 2;
+    return number2;
   }
 };
 
@@ -63,13 +63,15 @@ export const multiplyNumbers = ( number1, number2): number => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score,highScore) =>{
-  if (score < highScore) {
-    return 'You got a new high score!';
-  }
-  else if (score === highScore){
-    return 'So close!';
-  }
-  return 'Better luck next time!';
+   const isNewHighScore = score > highScore;
+
+    if (isNewHighScore) {
+        return "You got a new high score!";
+    } else if (score === highScore) {
+        return "So close!";
+    } else {
+        return "Better luck next time!";
+    }
 };
 
 /**
@@ -79,9 +81,13 @@ export const checkIfNewHighScore = (score,highScore) =>{
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius: number): string => {
-  return "";
+  const tempInFahrenheit = (tempInCelsius * 9)/ 5 +32;
+  
+  const temperatureString= tempInCelsius + " degrees celsius is " + tempInFahrenheit + " degrees fahrenheit";
+  
+  return temperatureString;
 };
-
+ 
 /**
  * A function that calculates the number of snickers needed for the rest of your life based on the number you eat per day,
  * your age and your maximum age.
@@ -92,7 +98,8 @@ export const celsiusToFahrenheit = (tempInCelsius: number): string => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay: number, age: number, maxAge: number): number => {
-  return -1;
+  const lifetimeSupply = (maxAge - age) * (snickersPerDay * 365);
+  return lifetimeSupply;
 };
 
 /* Advanced Challenges */
@@ -112,7 +119,27 @@ export const calculateLifetimeSupply = (snickersPerDay: number, age: number, max
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score: number): string => {
-  return "";
+if (score < 0 || score > 100 || typeof score !== "number"){
+  return "Score unavailable";
+}
+else if(score >= 80){
+  return "A";
+}
+else if(score >= 70){
+  return "B";
+}
+else if(score >= 60){
+  return "C";
+}
+else if(score >= 50){
+  return "D";
+}
+else if(score >= 40){
+  return "E";
+}
+else {
+  return "F"
+}
 };
 
 /**
