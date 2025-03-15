@@ -10,7 +10,7 @@ import {
   splitFullNameToFirstAndLast,
 } from "./challenge";
 
-// REMOVE .skip FROM DESCRIBE FUNCTION TO STOP SKIPPING TEST BLOCKS
+// REMOVE  FROM DESCRIBE FUNCTION TO STOP SKIPPING TEST BLOCKS
 
 describe("getFurniturePrice() tests", () => {
   const table = { name: "lack", price: 6 };
@@ -22,7 +22,7 @@ describe("getFurniturePrice() tests", () => {
   });
 });
 
-describe.skip("addFurnitureStorLocation() tests", () => {
+describe("addFurnitureStorLocation() tests", () => {
   const table = { name: "lack", price: 6 };
   const cabinet = { name: "brimnes", price: 55 };
   const tableWithLocation = setFurnitureStoreLocation(table, "Bristol");
@@ -43,7 +43,7 @@ describe.skip("addFurnitureStorLocation() tests", () => {
   });
 });
 
-describe.skip("makeSpaceship() tests", () => {
+describe("makeSpaceship() tests", () => {
   const rocinante = {
     name: "rocinante",
     noOfSeats: 8,
@@ -64,7 +64,7 @@ describe.skip("makeSpaceship() tests", () => {
   });
 });
 
-describe.skip("setUserName() tests", () => {
+describe("setUserName() tests", () => {
   const user1 = { name: "john smith", username: "johnnyboiii" };
   const user2 = { name: "jane doe", username: "killerZ" };
 
@@ -93,7 +93,7 @@ describe.skip("setUserName() tests", () => {
   });
 });
 
-describe.skip("splitFullNameToFirstAndLast() tests", () => {
+describe("splitFullNameToFirstAndLast() tests", () => {
   const customer1 = { fullName: "Barry Chuckle" };
   const customer2 = { fullName: "Paul Chuckle" };
 
@@ -112,7 +112,7 @@ describe.skip("splitFullNameToFirstAndLast() tests", () => {
   });
 });
 
-describe.skip("accessGivenKey() tests", () => {
+describe("accessGivenKey() tests", () => {
   const person = {
     name: "Joe Bloggs",
     height: 170,
@@ -137,7 +137,7 @@ describe.skip("accessGivenKey() tests", () => {
   });
 });
 
-describe.skip("getUserAddress() tests", () => {
+describe("getUserAddress() tests", () => {
   const user1 = {
     id: 101,
     name: "Harry Potter",
@@ -166,7 +166,7 @@ describe.skip("getUserAddress() tests", () => {
   });
 });
 
-describe.skip("setSafeAllergens() tests", () => {
+describe("setSafeAllergens() tests", () => {
   const allergenList = [
     "celery",
     "gluten",
@@ -252,7 +252,7 @@ describe.skip("setSafeAllergens() tests", () => {
   });
 });
 
-describe.skip("mergeFurniture() tests", () => {
+describe("mergeFurniture() tests", () => {
   const tableLocationInfo = { id: 101, location: "Bristol", sku: "bXpGsZC2j4" };
   const tableProductInfo = {
     id: 101,

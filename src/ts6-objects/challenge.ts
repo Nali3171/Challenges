@@ -34,12 +34,7 @@ export const getFurniturePrice = (furniture: Furniture): number => {
 export const setFurnitureStoreLocation = (
     furniture: Furniture,
     location: string
-): CompleteFurniture => {
-    const defaultFurniture = { name: "", price: -1, location: "" };
-
-    return defaultFurniture;
-};
-
+): CompleteFurniture => {};
 /**
  * A function which takes a selection of arguments relating to a space ship and uses them
  * to create a space ship object

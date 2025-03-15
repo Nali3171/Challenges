@@ -149,6 +149,11 @@ else {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius: number): number => {
+  const PI = Math.PI;
+  const area = PI * radius ** 2;
+  const areaTo2DecimalPlaces = area.toFixed(2);
+
+  return parseFloat(areaTo2DecimalPlaces);
   
 };
 
@@ -171,5 +176,21 @@ export const calculateAreaOfCircle = (radius: number): number => {
  * @returns {string} "Congratulations John! You achieved a grade of A." | "My apologies John, there's been an error in processing your grade."
  */
 export const getStudentSummary = (score: number, name: string): string => {
-  return "";
+  const letterGrade = getGrade(score);
+  switch (letterGrade) {
+  case "A":
+  return `Congratulations ${name}! You achieved a grade of ${letterGrade}.`;
+        case "B":
+            return `Well done ${name}! You achieved a grade of ${letterGrade}.`;
+        case "C":
+            return `Nicely done ${name}! You achieved a grade of ${letterGrade}.`;
+        case "D":
+            return `That's okay ${name}. You achieved a grade of ${letterGrade}.`;
+        case "E":
+            return `Too bad ${name}. You achieved a grade of ${letterGrade}.`;
+        case "F":
+            return `Sorry ${name}. You achieved a grade of ${letterGrade}. There's always next year.`;
+        default:
+            return `My apologies ${name}, there's been an error in processing your grade.`;
+    }
 };

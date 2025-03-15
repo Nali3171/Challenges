@@ -46,11 +46,11 @@ export const getFirstAndLastItems = (itemsArr: string[]): string[] => {
  */
 
 export const totalScores = (scoreArr: number[]): number => {
-let sum = 0 ;
-for(i = 0; i<scoreArr.length; i++){
-  sum += scoreArr[i];
+let total = 0 ;
+for(let index = 0; index <scoreArr.length; index++){
+  total += scoreArr[index];
 }
-return sum;
+return total;
 };
 
 /* Intermediate Challenges */
@@ -64,8 +64,8 @@ return sum;
  */
 
 export const totalRange = (rangeMax: number): number => {
-   const rangeArr = 0;
-   for(let i = 0; i<rangeMax; i++){
+   let rangeArr = 0;
+   for(let i = 0; i <= rangeMax; i++){
     rangeArr += i;
    }
   return rangeArr; 
@@ -144,7 +144,7 @@ export const reverseOrder = (toReverseArr: any[]): any[] => { //.map()
   return reverseArr;
   
 };
-//Where i stopped
+
 /* Expert Challenges */
 
 /**
