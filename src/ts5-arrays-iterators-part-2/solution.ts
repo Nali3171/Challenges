@@ -12,7 +12,7 @@ export const reverseString = (toReverse: string): string => {
   const stringJoined = stringReversed.join("");
 
   return stringJoined;
-};
+}; 
 
 export const sortCharactersAlphabetically = (characterArr: string[]): string[] => {
   const lowerCaseChar = characterArr.map(character => character.toLowerCase());

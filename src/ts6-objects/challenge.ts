@@ -13,7 +13,7 @@
  * A function that takes a furniture object from the catalogue and returns its price
  *
  * furniture = {
- *  name: "lack",
+ *  name: "lack", 
  *  price: 6
  * }
  *
@@ -22,6 +22,8 @@
  */
 export const getFurniturePrice = (furniture: Furniture): number => {
     return furniture.price;
+
+    
 };
 
 /**
@@ -34,7 +36,15 @@ export const getFurniturePrice = (furniture: Furniture): number => {
 export const setFurnitureStoreLocation = (
     furniture: Furniture,
     location: string
-): CompleteFurniture => {};
+): CompleteFurniture => {
+    const completeFurniture = { price: furniture.price, name: furniture.name, location: location };
+
+  return completeFurniture;
+};
+
+
+
+
 /**
  * A function which takes a selection of arguments relating to a space ship and uses them
  * to create a space ship object
@@ -52,14 +62,14 @@ export const makeSpaceship = (
     engineType: string,
     canTravelSolarSystems: boolean
 ): SpaceShip => {
-    const defaultSpaceShip = {
-        name: "",
-        noOfSeats: -1,
-        engineType: "",
-        canTravelSolarSystems: false,
-    };
+    const spaceship = {
+    name: name,
+    noOfSeats: noOfSeats,
+    engineType: engineType,
+    canTravelSolarSystems: canTravelSolarSystems,
+  };
 
-    return defaultSpaceShip;
+  return spaceship;
 };
 
 /* Intermediate Challenges */
@@ -72,9 +82,13 @@ export const makeSpaceship = (
  * @returns {{name: string, username: string}} User - The user object with the same username or a new one
  */
 export const setUserName = (user: User, username: string): CompleteUser => {
-    const defaultUser = { name: "", username: "" };
+    const hasUserName = user.hasOwnProperty("username");
 
-    return defaultUser;
+  if (!hasUserName) {
+    user.username = username;
+  }
+
+  return user as CompleteUser;
 };
 
 /**
@@ -87,9 +101,14 @@ export const setUserName = (user: User, username: string): CompleteUser => {
 export const splitFullNameToFirstAndLast = (
     customer: Customer
 ): CompleteCustomer => {
-    const defaultCustomer = { fullName: "", firstName: "", lastName: "" };
+     const fullName = customer.fullName;
+  const splitNames = fullName.split(" ");
+  const firstName = splitNames[0];
+  const lastName = splitNames[1];
 
-    return defaultCustomer;
+  const newCustomer = { fullName: fullName, firstName: firstName, lastName: lastName };
+
+  return newCustomer;
 };
 
 /**
@@ -102,7 +121,9 @@ export const splitFullNameToFirstAndLast = (
  * @returns {any} value - The value you have accessed on the object
  */
 export const accessGivenKey = (object: any, key: string): any => {
-    return;
+    const value = object[key];
+
+  return value;
 };
 
 /* Advanced Challenges */
@@ -115,9 +136,9 @@ export const accessGivenKey = (object: any, key: string): any => {
  * @returns {string} An address string for a shipping label
  */
 export const getUserAddress = (user: ShippingUser): string => {
-    const { line1, line2, city, postcode } = user.address;
-    const formattedAddress = `${line1} ${line2} ${city} ${postcode}`;
-    return formattedAddress;
+    const address = `${user.address.line1} ${user.address.line2} ${user.address.city} ${user.address.postcode}`;
+
+  return address;
 };
 
 /**
@@ -132,14 +153,13 @@ export const setSafeAllergens = (
     customer: RestaurantCustomer,
     allergenList: string[]
 ): CompleteRestaurantCustomer => {
-    const defaultCustomer = {
-        id: -1,
-        name: "",
-        allergies: [""],
-        safeAllergens: [""],
-    };
+    const safeAllergens = allergenList.filter(allergen => {
+    return !customer.allergies.includes(allergen);
+  });
 
-    return defaultCustomer;
+  const completeCustomer = { ...customer, safeAllergens };
+
+  return completeCustomer;
 };
 
 /* Expert Challenges */
@@ -156,14 +176,8 @@ export const mergeFurniture = (
     furnitureLocationData: FurnitureLocationData,
     furnitureProductData: FurnitureProductData
 ): FurnitureData => {
-    const defaultFurniture = {
-        id: -1,
-        location: "",
-        sku: "",
-        name: "",
-        price: -1,
-        isAvailable: false,
-    };
-
-    return defaultFurniture;
+    return {
+    ...furnitureLocationData,
+    ...furnitureProductData,
+  };
 };
