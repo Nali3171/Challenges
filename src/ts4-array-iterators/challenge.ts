@@ -9,7 +9,7 @@
   share it with the group!
 */
  
-/* Foundation Challenges */
+/* Foundation Challenges */ 
 
 /**
  * A function that takes an array of Booleans and then removes the false values from the given array.
@@ -20,6 +20,9 @@
  */
 
 export const removeFalseValues = (booleanArr: Boolean[]: boolean[]) => {
+  const trueValues = booleanArr.filter(boolean => boolean);
+  return trueValues;
+};
 
     
 
@@ -127,7 +130,13 @@ export const filterBooksBySearch = (
  */
 
 export const formatStringArray = (stringArr: string[]) => {
- const cleanedString = stringArr.lowe
+ const cleanedString = stringArr.map(string =>{
+  const cleanStr = string.trim().toLowerCase();
+  return cleanStr;
+ });
+ const joinedString = cleanedString.join("+");
+
+ return joinedString;
 };
 
 /**
@@ -144,7 +153,11 @@ export const formatStringArray = (stringArr: string[]) => {
  */
 
 export const formatString = (string: string): string[] => {
-  return [];
+   const cleanStr = string.replace(/[^\w]|[\s\d]/gi, "");
+  const formatString = cleanStr
+    .split("")
+    .map((letter, index) => (index % 2 === 0 ? letter.toUpperCase() : letter.toLowerCase()));
+  return formatString;
 };
 
 /**
@@ -171,5 +184,16 @@ export const formatString = (string: string): string[] => {
  */
 
 export const fizzBuzz = (mixedArray: any[]): string[] => {
-  return [];
+  const positiveNumberArray = mixedArray.filter((item: any) => Number(item) && item > 0) as string[] | number[];
+
+  const fizzBuzz = positiveNumberArray.map(number => {
+    let string = "";
+
+    if (!(+number % 3)) string += "Fizz";
+    if (!(+number % 5)) string += "Buzz";
+
+    return string || number.toString();
+  });
+
+  return fizzBuzz;
 };

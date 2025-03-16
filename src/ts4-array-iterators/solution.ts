@@ -4,7 +4,7 @@ export const removeFalseValues = (booleanArr: boolean[]): boolean[] => {
   const trueValues = booleanArr.filter(boolean => boolean);
   return trueValues;
 };
-
+ 
 export const createPercentageList = (numbersArr: number[]): string[] => {
   const percentageList = numbersArr.map(number => `${number * 100}%`);
   return percentageList;
